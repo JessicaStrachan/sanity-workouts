@@ -1,0 +1,6 @@
+.trackingInput__input {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 10px;
+  width: 100%
+}

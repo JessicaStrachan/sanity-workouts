@@ -1,0 +1,15 @@
+.banner__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: center;
+}
+
+.banner__heading {
+  text-transform: uppercase;
+}
+
+.banner--small .banner__container {
+  height: 80px;
+}
