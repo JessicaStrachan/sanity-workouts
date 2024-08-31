@@ -21,7 +21,7 @@ export default async function ExercisePage({
 }: {
   params: { slug: string };
 }) {
-  const exercise = await sanityFetch<SanityDocument>({
+  const exercise = await sanityFetch<string>({
     query: EXERCISE_QUERY,
     params,
   });
@@ -53,13 +53,13 @@ export default async function ExercisePage({
   const noOfSets = (sets:string, reps:string) => {
     const noOfSets = parseInt(sets);
     const noOfReps = parseInt(reps);
-    let inputs:Array = [];
+    let inputs:Array<String> = [];
     for (let i = 0; i < noOfSets; i++) {
-      inputs.push(<div className="grid grid-cols-2 gap-4" key={i}>
-        <TrackingInput value={noOfReps} copy="Reps"/>
+      inputs.push(`<div className="grid grid-cols-2 gap-4" key="${i}">
+        <TrackingInput value="${noOfReps}" placeholder="${reps}" copy="Reps"/>
         <TrackingInput value="0" copy="Weight"/>
       </div>
-      ) ;
+      `) ;
     }
     return inputs
   }

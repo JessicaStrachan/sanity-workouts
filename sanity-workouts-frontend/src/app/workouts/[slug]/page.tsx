@@ -20,12 +20,12 @@ const EXERCISES_QUERY = `*[  _type == "workout" &&
   }: {
     params: { slug: string };
   }) {
-    const workout = await sanityFetch<SanityDocument>({
+    const workout = await sanityFetch<string>({
       query: WORKOUT_QUERY,
       params,
     });
 
-    const exercises = await sanityFetch<SanityDocument>({
+    const exercises = await sanityFetch<string>({
       query: EXERCISES_QUERY,
       params,
     });
@@ -36,11 +36,11 @@ const EXERCISES_QUERY = `*[  _type == "workout" &&
     } = workout;
 
     const WorkoutsListing = (exercises: any) => {
-      const workouts:Array = [];
-      exercises.map((exercise: any, i) => (
-        workouts.push(<li className={i + 1 !== exercises.length ? 'mb-4' : ''} key={exercise.id}>
-          <Button text={exercise.name} href={`/workouts/exercises/${exercise.slug.current}`} />
-          </li>)
+      const workouts:Array<String> = [];
+      exercises.map((exercise: any, i: number) => (
+        workouts.push(`<li className="${i + 1 !== exercises.length ? 'mb-4' : ''}" key="${exercise.id}">
+          <Button text="${exercise.name}" href="${`/workouts/exercises/${exercise.slug.current}"`} />
+          </li>`)
         ))
       return workouts
     }

@@ -4,13 +4,13 @@ import './banner.css'
 const paytone_one = Paytone_One({ subsets: ['latin'], weight: '400', })
 
 interface Props {
-  heading: string;
-  subHeading: string;
-  size: string;
+  heading?: string;
+  subHeading?: string;
+  size?: string;
 }
 
-const bannerModifierClass = (size: string) => {
- return size !== undefined ? `banner--${size}` : ''
+const bannerModifierClass = (size?: string) => {
+ return size ? `banner--${size}` : ''
 }
 
 

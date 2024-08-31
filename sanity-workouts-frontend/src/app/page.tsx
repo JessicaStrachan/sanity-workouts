@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { sanityDocument } from 'next-sanity';
+import { SanityDocument } from 'next-sanity';
+
 import Banner from '@/components/Banner';
 import Button from '@/components/Button';
 
@@ -10,17 +11,19 @@ const PROGRAMMES_QUERY = `*[
   && defined(slug.current)
 ]{_id, name, slug}`;
 
+
 export default async function IndexPage() {
-  const programmes = await sanityFetch<sanityDocument[]>({query: PROGRAMMES_QUERY});
+  // const programmes = await sanityFetch<SanityDocument[]>({query: PROGRAMMES_QUERY});
+  const programmes = await sanityFetch<string>({query: PROGRAMMES_QUERY});
   const bannerHeading = 'Good morning, Jess';
   
   return (
     <main>
-      <Banner heading={bannerHeading} />
+      <Banner heading={bannerHeading} subHeading={''} size={''}/>
       <section className="section">
         <div className="container">
           <ul className="">
-            {programmes.map((programme, i) => (
+            {programmes.map((programme:any, i:number) => (
               <li className={i + 1 !== programmes.length ? 'mb-4' : ''} key={programme.id}>
                 <Button text={programme?.name} href={`/programmes/${programme.slug.current}`} />
               </li>

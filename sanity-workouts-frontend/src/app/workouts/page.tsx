@@ -14,7 +14,7 @@ const WORKOUT_QUERY = `*[
 ]{_id, name, slug}`;
 
 export default async function WorkoutsPage() {
-  const workouts = await sanityFetch<SanityDocument[]>({query: WORKOUT_QUERY});
+  const workouts = await sanityFetch<string>({query: WORKOUT_QUERY});
   const bannerHeading = 'Workouts';
 
   return (
@@ -24,7 +24,7 @@ export default async function WorkoutsPage() {
       <section className="section">
         <div className="container">
           <ul>
-            {workouts.map((workout, i) => (
+            {workouts.map((workout: any, i:number) => (
               <li className={i + 1 !== workouts.length ? 'mb-4' : ''} key={workout.id}>
                 <Button href={`/workouts/${workout.slug.current}`} text={workout?.name}/>
               </li>

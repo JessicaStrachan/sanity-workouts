@@ -7,13 +7,14 @@ import './trackingInput.css'
 interface Props {
   value: number;
   copy: string;
+  placeholder: string;
 }
 
-const trackingInput = ({ value, copy }: Props) => {
+const trackingInput = ({ value, copy, placeholder }: Props) => {
   return (
     <div className="trackingInput">
       <label className="trackingInput__label" htmlFor="tracking-input">{copy}</label>
-      <input className="trackingInput__input" type="number" value={value} placeholder={value}/>
+      <input className="trackingInput__input" type="number" value={value} placeholder={placeholder}/>
     </div>
   )
 }

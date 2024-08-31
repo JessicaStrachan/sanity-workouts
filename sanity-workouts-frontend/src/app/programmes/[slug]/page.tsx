@@ -27,12 +27,12 @@ export default async function ProgrammePage({
   params: { slug: string };
 }) {
 
-  const programme = await sanityFetch<SanityDocument>({
+  const programme = await sanityFetch<string>({
     query: PROGRAMME_QUERY,
     params,
   });
 
-  const structure = await sanityFetch<SanityDocument[]>({query: STRUCTURE_QUERY});
+  const structure = await sanityFetch<string>({query: STRUCTURE_QUERY});
 
   const {
     name,
@@ -42,8 +42,8 @@ export default async function ProgrammePage({
   } = programme;
     
   const weeklyWorkouts = () => {
-    const workouts = []
-    structure[0].structure.map((item, i) => (
+    const workouts:any = []
+    structure[0].structure.map((item:any, i:number) => (
       workouts.push(<li className={i + 1 !== structure[0].structure.length ? 'mb-4' : ''} key={i}>
         <Button text={item.name} href={`/workouts/${item.slug.current}`} />
         </li>)
