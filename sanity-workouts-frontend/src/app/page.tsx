@@ -11,7 +11,7 @@ const PROGRAMMES_QUERY = `*[
 ]{_id, name, slug}`;
 
 export default async function IndexPage() {
-  const programmes = await sanityFetch<SanityDocument[]>({query: PROGRAMMES_QUERY});
+  const programmes = await sanityFetch<sanityDocument[]>({query: PROGRAMMES_QUERY});
   const bannerHeading = 'Good morning, Jess';
   
   return (

@@ -4,7 +4,7 @@ import "./styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const paytone_one = Paytone_One({
+const paytone_one = Paytone_One({
   subsets: ['latin'],
   display: 'swap',
   weight: '400',
