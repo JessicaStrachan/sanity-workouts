@@ -1,9 +1,0 @@
-{
-  "../node_modules/@sanity/visual-editing/dist/_chunks-es/enableVisualEditing.js -> ./renderVisualEditing.js": {
-    "id": 386,
-    "files": [
-      "static/chunks/3009376d.145f0af63395873a.js",
-      "static/chunks/912.b5c91f3e11fcae7f.js"
-    ]
-  }
-}
