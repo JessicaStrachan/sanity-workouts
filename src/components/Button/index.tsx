@@ -1,9 +1,10 @@
 import { Paytone_One } from 'next/font/google'
- 
+
 const paytone_one = Paytone_One({ subsets: ['latin'], weight: '400', })
 
 import Link from 'next/link';
-import './button.css'
+// import './button.css'
+import styles from './button.module.css'
 
 
 interface Props {
@@ -13,7 +14,7 @@ interface Props {
 
 const Button = ({ text, href }: Props) => {
   return (
-    <Link className={`${paytone_one.className} ${'button'}`} href={href}>{text}</Link>
+    <Link className={`${paytone_one.className} ${styles['button']}`} href={href}>{text}</Link>
   )
 }
 

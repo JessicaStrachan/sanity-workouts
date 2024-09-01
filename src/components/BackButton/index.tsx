@@ -1,8 +1,7 @@
 
-import styles from './banner.module.css'
 import Link from 'next/link';
 
-import './backButton.css'
+import styles from './backButton.module.css'
 
 interface Props {
   url: string;
@@ -10,7 +9,7 @@ interface Props {
 
 const BackButton = ({url}: Props) => {
   return (
-    <Link className="backButton" href={url}>← Back</Link>
+    <Link className={styles['backButton']} href={url}>← Back</Link>
   )
 }
 
